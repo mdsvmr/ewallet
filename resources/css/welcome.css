@@ -1,0 +1,46 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.hero{
+    background-color: #11061E;
+  }
+  .btn{
+    background: linear-gradient(to right, #a12cd9, #E845E5, #FF91D1);
+  }
+  .btn2{
+    background: linear-gradient(to right, #A12CD9, #E845E5, #FF91D1);
+  }
+  .bubble{
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    color: black;
+    height: 100%;
+    border-radius: 100%;
+    background: radial-gradient()
+}
+
+.abubble {
+  position: absolute;
+  top: 200px;
+  left: 70px;
+  background-color: transparent;
+  width: 80px;
+  height: 80px;
+  z-index: 10;
+}
+.innerbubble {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+ 
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: transparent;
+  background: -webkit-radial-gradient(center, circle cover, rgba(161, 44, 217, 0) 50%, rgba(232, 69, 229, 255) 100%);
+}
