@@ -123,10 +123,23 @@
     }
     .foot{
       background: radial-gradient(110px 60px at 50% bottom,#470246, #0F0823);
+      animation: animate 5s ease-in-out infinite;
     }
     .text{
       color: #E845E5;
     }
+
+    @keyframes animate{
+    0%{
+      background-color: #0F0823;
+    }
+    50%{
+      background: radial-gradient(110px 60px at 50% bottom,#470246, #0F0823);
+    }
+    100%{
+      background-color: #0F0823;
+    }
+}
 
     /* min-width------------------------------------- */
    @media(min-width: 1024px){
