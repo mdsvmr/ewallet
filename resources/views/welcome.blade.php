@@ -32,6 +32,12 @@
       background-color: #7d0eb1;
       box-shadow: 0 0 20px 10px rgba(39, 38, 39, 0.5); 
     }
+    .navchild .link{
+      transition: .3s;
+    }
+    .navchild .link:hover{
+      color: #faee1c;
+    }
     .hero{
        background: radial-gradient(farthest-side at bottom right, rgba(161, 44, 217, 0.5), transparent);
     } 
@@ -298,7 +304,7 @@
       <svg class="cancel h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
       </svg>
-      <div class="text-md lg:flex-grow">
+      <div class="navgrand text-md lg:flex-grow">
         <a href="#home" class="link block mt-5 lg:inline-block lg:mt-0 text-white mr-5">
           Home
         </a>
@@ -312,7 +318,7 @@
       <div>
         <button
           class="btn3 text-white font-normal rounded-md py-2 border-black px-4 focus:outline-none focus:shadow-outline transform transition ">
-          <a href="{{ url('login')}}">Sign In</a>
+          <a class="link" href="{{ url('login')}}">Sign In</a>
       </button>
         <button
           class="btn2 text-white font-medium rounded-md py-2 px-4 ">
