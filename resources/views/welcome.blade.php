@@ -15,9 +15,25 @@
     body{
       background-color: #0F0823;
     }
+    .nav1{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 100px;
+      z-index: 1000;
+      transition: .5s;
+    }
+    .nav1.sticky{
+      padding: 20px 100px;
+      background-color: #7d0eb1;
+      box-shadow: 0 0 20px 10px rgba(39, 38, 39, 0.5); 
+    }
     .hero{
        background: radial-gradient(farthest-side at bottom right, rgba(161, 44, 217, 0.5), transparent);
-       padding-top: 9%;
     } 
     .wallet{
       width: 30px;
@@ -27,6 +43,11 @@
     }
     .btn{
       background: linear-gradient(to right, #a12cd9, #E845E5, #ff91d1);
+    }
+    .gbr1 .gbr3{
+      position: absolute;
+      top: 155px;
+      right: 130px;
     }
     .gbrdiv{
       display: block;
@@ -110,6 +131,7 @@
     .features{
       width: 100%;
       background: radial-gradient(farthest-side at top right, rgba(161, 44, 217, 0.5), transparent);
+      padding-top: 200px;
     } 
     .fitur img{
       position: relative;
@@ -118,28 +140,13 @@
     .fitur-icon{
       background-color:;
     }
-    .support{
-    );
-    }
     .foot{
-      background: radial-gradient(110px 60px at 50% bottom,#470246, #0F0823);
-      animation: animate 5s ease-in-out infinite;
+      background: radial-gradient(110px 50px at 50% bottom,#470246, #0F0823);
     }
     .text{
       color: #E845E5;
     }
 
-    @keyframes animate{
-    0%{
-      background-color: #0F0823;
-    }
-    50%{
-      background: radial-gradient(110px 60px at 50% bottom,#470246, #0F0823);
-    }
-    100%{
-      background-color: #0F0823;
-    }
-}
 
     /* min-width------------------------------------- */
    @media(min-width: 1024px){
@@ -149,12 +156,15 @@
       .navchild .cancel{
        display: none;
       }
-      .main{
-      margin-top: -8%;
+      .hero{
+       margin-top: 180px;
       }
       .hero .container .main{
         width: 40%;
       }
+      .fitur-icon p{
+      width: 50%;
+    }
       
      }
 
@@ -171,6 +181,9 @@
         width: 100%;
         justify-items: center;
         text-align: center;
+      }
+      .hero{
+       margin-top: 130px;
       }
      .navchild{
        position: fixed;
@@ -209,9 +222,6 @@
        top: 12px;
        cursor: pointer;
      }
-     .main{
-        margin-top: 0;
-      }
      .gbr1{
        display: none;
      }
@@ -221,6 +231,9 @@
     .abubble3 {
       display: none;
     }
+    .features{
+      padding-top: 70px;
+    } 
     .fitur{
       display: none;
     }
@@ -230,32 +243,33 @@
     .fitur-icon h1{
       text-align: center;
     }
-    .fitur-icon .div1 .akun{
-      text-align: center;
-    }
-    .fitur-icon .div1 .monitor{
-      text-align: center;
-      margin-left: 20%;
+    .fitur-icon p{
+      width: 50%;
+      margin: 20px 0 0 25%;
     }
     .fitur-icon .hai{
-      margin-left: 14%;
+      display: inline-block;
     }
-    .fitur-icon .div2 .report{
+    .fitur-icon .div1 .akun{
       text-align: center;
-      margin-left: 20%;
+      justify-content: center;
+      align-items: center;
+      display: block;
     }
-    .fitur-icon .div2 .chart{
+    .fitur-icon .div2 .akun{
       text-align: center;
+      justify-content: center;
+      align-items: center;
+      display: block;
     }
-    .fitur-icon .div3 .safe{
+    .fitur-icon .div3 .akun{
       text-align: center;
-      margin-left: 20%;
-    }
-    .fitur-icon .div3 .design{
-      text-align: center;
+      justify-content: center;
+      align-items: center;
+      display: block;
     }
     .support img{
-      height: 80px;
+      height: 60px;
     }
 
 }
@@ -263,8 +277,8 @@
 </head>
 
 <body class="leading-normal tracking-normal" style="font-family: 'Montserrat', sans-serif">
-
-  <nav class="nav1 flex items-center justify-between flex-wrap p-5 px-24">
+  {{-- flex items-center justify-between flex-wrap p-5 px-24 z-1000 --}}
+  <nav class="nav1">
     <div class="flex items-center flex-shrink-0 text-black mr-6">
       <img class="wallet" src="{{ asset('img/wallet.png')}}" alt="">
       <span class="font-bold tracking-wider text-xl text-white">
@@ -298,11 +312,11 @@
       <div>
         <button
           class="btn3 text-white font-normal rounded-md py-2 border-black px-4 focus:outline-none focus:shadow-outline transform transition ">
-          <a href="{{ url('login')}}">Login</a>
+          <a href="{{ url('login')}}">Sign In</a>
       </button>
         <button
           class="btn2 text-white font-medium rounded-md py-2 px-4 ">
-          <a href="{{ url('register')}}">Sign In</a>
+          <a href="{{ url('register')}}">Login</a>
         </button>
       </div>
     </div>
@@ -311,7 +325,7 @@
   <!-- Header -->
 
   <!--Hero-->
-  <div id="home" class="hero px-20 pl-28 bg-blue-200">
+  <div id="home" class="hero px-20 pl-28">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       <!--Left Col-->
       <div class="main flex flex-col w-full justify-center items-start text-center md:text-left text-white">
@@ -319,7 +333,7 @@
           The easiest way to manage your personal finance
         </h1>
         <p class="leading-normal text-1xl mb-8">
-          manage your money by saving it with no charge and feel how easy to manage your personal finance and payment
+          manage your income and expenses by saving it with no charge and feel how easy to manage your personal finance and payment
         </p>
         <button
           class="btn mx-auto lg:mx-0 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline">
@@ -328,8 +342,8 @@
       </div>
       <!--Right Col-->
       <div class="gbr1 w-full md:w-3/5 text-center">
-        <img class="object-fill mx-35 transform"
-          src="{{ asset('img/gbr1.png')}}" />
+        <img class="gbr3 object-fill mx-35 transform"
+          src="{{ asset('img/gbr3.png')}}" />
           <div class="gbrdiv"></div>
       </div>
       <div class='abubble'>
@@ -354,30 +368,30 @@
 
     </div>
     <div class="fitur-icon w-1/2 py-10 ">
-      <h1 class="text-white text-4xl font-bold">The Fitures</h1>
+      <h1 class="text-white text-4xl font-bold">The Features</h1>
       <div class="div1 flex justify-beetween my-10">
-        <div class="monitor w-1/2">
+        <div class="akun w-1/2">
           <svg class="hai h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
           </svg>
-          <p class="text-white w-1/2 pt-2">you open a remote account</p>
+          <p class="text-white pt-2">you open a remote account</p>
         </div>
         <div class="akun w-1/2">
           <svg class="hai h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
-          <p class="text-white w-1/2 pt-2">financing from enywhere</p>
+          <p class="text-white pt-2">financing from enywhere</p>
         </div>
       </div>
 
       <div class="div2 flex justify-beetween my-10">
-        <div class="report w-1/2">
+        <div class="akun w-1/2">
           <svg class="hai h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
           </svg>
           <p class="text-white w-1/2 pt-2">you will get a report</p>
         </div>
-        <div class="chart w-1/2">
+        <div class="akun w-1/2">
           <svg class="hai h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
@@ -386,13 +400,13 @@
       </div>
 
       <div class="div3 flex justify-beetween my-10">
-        <div class="safe w-1/2">
+        <div class="akun w-1/2">
           <svg class="hai h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
           <p class="text-white w-1/2 pt-2">secure system and database</p>
         </div>
-        <div class="design w-1/2">
+        <div class="akun w-1/2">
           <svg class="hai h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
           </svg>
@@ -425,6 +439,11 @@
     <span class="text mr-2">© 2021. Allright Reserved. Design By </span><a href="https://dribbble.com/ongoingproject" target="_blank"><img class="logo pb-1" src="{{ asset('img/logo.png')}}"></a>
   </footer>
   <script>
+    window.addEventListener("scroll", function(){
+      var nav = document.querySelector(".nav1");
+      nav.classList.toggle("sticky", window.scrollY>0);
+    })
+
     const body = document.querySelector("body");
     const navbar = document.querySelector(".navchild");
     const menuBtn = document.querySelector(".menu");
