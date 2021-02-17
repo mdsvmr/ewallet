@@ -86,4 +86,10 @@ class Expenses extends Component
         $expense->delete(); //LALU HAPUS DATA
         session()->flash('message', 'Data berhasil dihapus'); //DAN BUAT FLASH MESSAGE UNTUK NOTIFIKASI
     }
+
+    public function cetakData()
+    {
+        $expense = Expense::all();
+        return view('cetak-data')->with('expense', $expense);
+    }
 }

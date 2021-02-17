@@ -14,6 +14,7 @@
     }
     body{
       background-color: #0F0823;
+      overflow-x: hidden;
     }
     .nav1{
       position: fixed;
@@ -41,6 +42,14 @@
     .hero{
        background: radial-gradient(farthest-side at bottom right, rgba(161, 44, 217, 0.5), transparent);
     } 
+    .main1{
+      opacity: 0;
+      animation: fadeOn 0.9s 0.3s ease-in-out forwards;
+    }
+    .main2{
+      opacity: 0;
+      animation: fadeOn 0.9s 0.6s ease-in-out forwards;
+    }
     .wallet{
       width: 30px;
     }
@@ -49,11 +58,15 @@
     }
     .btn{
       background: linear-gradient(to right, #a12cd9, #E845E5, #ff91d1);
+      opacity: 0;
+      animation: fadeOn 0.9s 0.9s ease-in-out forwards;
     }
     .gbr1 .gbr3{
       position: absolute;
       top: 155px;
       right: 130px;
+      opacity: 0;
+      animation: fadeOn 0.9s 1.4s ease-in-out forwards;
     }
     .gbrdiv{
       display: block;
@@ -64,7 +77,11 @@
       top: 0;
       right: 250px;
       z-index: -1;
+      transform-origin: left center;
+      transform: scaleX(0);
+      animation: scaleRight 0.7s 1.1s ease-in-out forwards;
     }
+    
     .abubble {
       position: absolute;
       top: 150px;
@@ -73,6 +90,8 @@
       width: 100px;
       height: 100px;
       z-index: -10;
+      opacity: 0;
+      animation: fadeOn 0.9s 1.5s ease-in-out forwards;
     }
     .innerbubble {
       position: absolute;
@@ -96,6 +115,8 @@
       width: 150px;
       height: 150px;
       z-index: 10;
+      opacity: 0;
+      animation: fadeOn 0.9s 1.7s ease-in-out forwards;
     }
     .innerbubble2 {
       position: absolute;
@@ -119,6 +140,8 @@
       width: 200px;
       height: 200px;
       z-index: -10;
+      opacity: 0;
+      animation: fadeOn 0.9s 1.9s ease-in-out forwards;
     }
     .innerbubble3 {
       position: absolute;
@@ -139,12 +162,16 @@
       background: radial-gradient(farthest-side at top right, rgba(161, 44, 217, 0.5), transparent);
       padding-top: 200px;
     } 
+    .fade-in{
+      opacity: 0;
+      transition: opacity 0.9s ease-in;
+    }
+    .fade-in.appear{
+      opacity: 1;
+    }
     .fitur img{
       position: relative;
       margin: 60px 0 0 -50px;
-    }
-    .fitur-icon{
-      background-color:;
     }
     .foot{
       background: radial-gradient(110px 50px at 50% bottom,#470246, #0F0823);
@@ -153,6 +180,42 @@
       color: #E845E5;
     }
 
+    .from-left {
+      grid-column: 2 / 3;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    .from-right {
+      grid-column: 3 / 4;
+      -webkit-transform: translateX(50%);
+      transform: translateX(50%);
+    }
+
+    .from-left,
+    .from-right {
+      transition: opacity 0.9s ease-in, -webkit-transform 0.6s ease-in;
+      transition: opacity 0.9s ease-in, transform 0.6s ease-in;
+      transition: opacity 0.9s ease-in, transform 0.6s ease-in,
+        -webkit-transform 0.6s ease-in;
+      opacity: 0;
+    }
+
+    .from-left.appear,
+    .from-right.appear {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    @keyframes fadeOn {
+	    0% { opacity: 0 }
+	    100% { opacity: 1 }
+    }
+    @keyframes scaleRight {
+	    0% { transform: scaleX(0) }
+  	  100% { transform: scaleX(1) }
+    }
 
     /* min-width------------------------------------- */
    @media(min-width: 1024px){
@@ -318,11 +381,11 @@
       <div>
         <button
           class="btn3 text-white font-normal rounded-md py-2 border-black px-4 focus:outline-none focus:shadow-outline transform transition ">
-          <a class="link" href="{{ url('login')}}">Sign In</a>
+          <a class="link" href="{{ url('register')}}">Sign In</a>
       </button>
         <button
           class="btn2 text-white font-medium rounded-md py-2 px-4 ">
-          <a href="{{ url('register')}}">Login</a>
+          <a href="{{ url('login')}}">Login</a>
         </button>
       </div>
     </div>
@@ -335,15 +398,15 @@
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       <!--Left Col-->
       <div class="main flex flex-col w-full justify-center items-start text-center md:text-left text-white">
-        <h1 class="my-4 text-4xl font-bold leading-tight">
+        <h1 class="main1 my-4 text-4xl font-bold leading-tight">
           The easiest way to manage your personal finance
         </h1>
-        <p class="leading-normal text-1xl mb-8">
+        <p class="main2 leading-normal text-1xl mb-8">
           manage your income and expenses by saving it with no charge and feel how easy to manage your personal finance and payment
         </p>
         <button
           class="btn mx-auto lg:mx-0 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline">
-          <a href="{{ url('login')}}">Get stared</a>
+          <a href="{{ url('register')}}">Get stared</a>
         </button>
       </div>
       <!--Right Col-->
@@ -367,13 +430,13 @@
   <!-- Features -->
   <div id="features" class="features flex justify-beetween py-20 px-10">
     
-    <div class="fitur w-1/2">
+    <div class="fitur slide-in from-left w-1/2">
       
       <img class="object-fill transform w-84"
           src="{{ asset('img/card.png')}}" />
 
     </div>
-    <div class="fitur-icon w-1/2 py-10 ">
+    <div class="slide-in from-right fitur-icon w-1/2 py-10 ">
       <h1 class="text-white text-4xl font-bold">The Features</h1>
       <div class="div1 flex justify-beetween my-10">
         <div class="akun w-1/2">
@@ -422,9 +485,10 @@
 
     </div>
   </div>
+  </section>
 
   <!-- Features -->
-  <div class="support pb-24">
+  <div class="fade-in support pb-24">
     <h1 class="text-center text-white mb-8 text-2xl font-bold">Powered By</h1>
     <div class="support-img flex h-8 mb-14 bg-red justify-center pr-12 pl-12">
       <div>
@@ -470,7 +534,40 @@
       body.classList.remove("disabled");
     }
     navlink.forEach(n => n.addEventListener('click', linkAction))
-    
+
+
+
+    const faders = document.querySelectorAll(".fade-in");
+    const sliders = document.querySelectorAll(".slide-in");
+
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -250px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(
+      entries,
+      appearOnScroll
+    ) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    sliders.forEach(slider => {
+     appearOnScroll.observe(slider);
+    });
+
   </script>
 </body>
 </html>

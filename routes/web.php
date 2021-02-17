@@ -24,3 +24,5 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
     Route::get('expense', Expenses::class)->name('expense'); //Tambahkan routing ini
 });
+
+Route::get('cetak-data',[Expenses::class, 'cetakData'])->name('cetak-data');

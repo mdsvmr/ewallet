@@ -13,7 +13,7 @@
                     <img class="w-36" src="{{ asset('img/ewallet-logo.png')}} " alt="Logo">
                 </a>
                 <p class="text-lg">
-                    Welcome to E-Wallet dashboard, the easiest way to manage your personal finance, E-Wallet will manage your money by saving it with no charge and feel how easy to manage your personal finance and payment.
+                    Welcome to E-Wallet dashboard, E-Wallet will manage your income and expenses by saving it with no charge and feel how easy to manage your personal finance and payment.
                 </p>
                     
                 </table>
