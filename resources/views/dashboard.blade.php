@@ -12,9 +12,8 @@
                 <a href="/">
                     <img class="w-36" src="{{ asset('img/ewallet-logo.png')}} " alt="Logo">
                 </a>
-                <p class="text-lg">
-                    Welcome to E-Wallet dashboard, E-Wallet will manage your income and expenses by saving it with no charge and feel how easy to manage your personal finance and payment.
-                </p>
+                
+                <h1>Grafik</h1>
                     
                 </table>
             </div>

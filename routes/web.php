@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
+    // Route::get('/dashboard', grafikDatas::class)->name('index');
     Route::get('/dashboard', function() {
         return view('dashboard');
     })->name('dashboard');
